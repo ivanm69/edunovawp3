@@ -1,4 +1,4 @@
-use master;
+﻿use master;
 go
 drop database if exists tekucine2;
 go
@@ -72,6 +72,8 @@ values('Desertna','Coco Blanco',1,0),
 
 insert into vrste(naziv)
 values(1),(2),(3),(4);
-select * from vrste;
+
+
+select * from arome;
 
 
