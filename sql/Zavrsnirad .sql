@@ -29,11 +29,10 @@ hladilo bit
 
 create table vrste(
 sifra int primary key identity(1,1),
-naziv varchar(225),
-tekucine int not null,
-aroma int not null);
+naziv int);
 
-alter table vrste add foreign key(aroma)references arome(sifra);
+
+alter table vrste add foreign key(naziv)references arome(sifra);
 
 alter table proizvodi add foreign key (proizvodjac) references proizvodjaci(sifra);
 alter table arome add foreign key (proizvod) references proizvodi(sifra);
@@ -70,4 +69,9 @@ values('Desertna','Coco Blanco',1,0),
 ('Vocna','Kiwi Passion',7,0),
 ('Vocna','Exorcist',1,0),
 ('Vocna','Banananana',2,0);
+
+insert into vrste(naziv)
+values(1),(2),(3),(4);
+select * from vrste;
+
 
