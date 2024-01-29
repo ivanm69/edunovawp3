@@ -1,4 +1,4 @@
-use master;
+﻿use master;
 go
 drop database if exists edunovawp3;
 go
@@ -63,40 +63,37 @@ alter table grupe add foreign key (predavac) references predavaci(sifra);
 alter table clanovi add foreign key (grupa) references grupe(sifra);
 alter table clanovi add foreign key (polaznik) references polaznici(sifra);
 
+use edunovawp3;
 
-
+select * from smjerovi;
 
 -- školska sintaksa
--- 1
+--1
 insert into smjerovi (naziv, trajanje,cijena,vaucer)
 values ('Web programiranje', 225, 1859.45,1);
 
 -- loša sintaksa
--- 2
 insert into smjerovi values
+--2
 ('Web dizajn',null,null,null);
 
 -- minimalna dobra sintaksa
--- 3
+--3
 insert into smjerovi (naziv) values ('čšćđž ČŠĆĐŽ');
 
 
+select * from predavaci;
 
-
-
-insert into predavaci (ime, prezime, email) values
--- 1
-('Tomislav','Jakopec','tjakopec@gmail.com'),
--- 2
+insert into predavaci(ime,prezime,email)
+--1
+values('Tomislav','Jakopec','tjakopec@gmail.com'),
+--2
 ('Shaquille','O''Neal','shaki@gmail.com');
 
-
-
-
-
--- 1 do 24
-insert into polaznici(ime,prezime,email) values
-('Slaven','Poznić','slaven.poznic@hotmail.com'),
+select * from polaznici;
+--1 do 24
+insert into polaznici(ime,prezime,email)
+values('Slaven','Poznić','slaven.poznic@hotmail.com'),
 ('Karla','Kraljik','kraljikkarla@gmail.com'),
 ('Dino','Sabljić','dino.sabljic@gmail.com'),
 ('Luka','Crljić','lukacrljic7@gmail.com'),
@@ -121,29 +118,15 @@ insert into polaznici(ime,prezime,email) values
 ('Srđan','Filipović','srdjanfilipovic991@gmail.com'),
 ('Veljko','Vujić','veljko2805vujic@gmail.com');
 
+select *from grupe;
 
+insert into grupe(naziv,smjer,datumpocetka,maxpolaznika,predavac)
+values('WP3',1,'2023-11-29 19:00:00',25,1),
+('WP2',1,'2023-11-07 17:00:00',25,null);
 
+select * from clanovi;
 
-
-insert into grupe (naziv,predavac,datumpocetka,smjer,maxpolaznika)
-values
--- 1
-('WP3',1,'2023-11-29 19:00:00',1,25),
--- 2
-('WP2',null,'2023-11-07 17:00:00',1,25);
-
-
-
-
-insert into clanovi (grupa,polaznik) values
-(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),(1,8)
-,(1,9),(1,10),(1,11),(1,12),(1,13),(1,14),(1,15),(1,16)
-,(1,17),(1,18),(1,19),(1,20),(1,21),(1,22),(1,23),(1,24);
-
-
-
-
-
-
-
-
+insert into clanovi(grupa,polaznik)
+values(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(1,7),(1,8),
+(1,9),(1,10),(1,11),(1,12),(1,13),(1,14),(1,15),(1,16),
+(1,17),(1,18),(1,19),(1,20),(1,21),(1,22),(1,23),(1,24);
