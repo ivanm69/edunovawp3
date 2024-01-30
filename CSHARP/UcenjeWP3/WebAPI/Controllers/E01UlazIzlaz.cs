@@ -12,5 +12,17 @@ namespace WebAPI.Controllers
         {
             return "Dobro  večer " + Ime;
         }
+
+
+
+
+
+
+        [HttpGet]
+        [Route("zad1")]
+        public int Zad1(int prvi,int drugi)
+        {
+            return prvi + drugi;
+        }
     }
 }
