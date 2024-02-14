@@ -24,40 +24,40 @@ namespace UcenjeCS
                     matrica[i] = new int[stupci];
                 }
 
-                int counter = 1;
-                int row = redova - 1;
-                int col = stupci - 1;
-                int layer = 0;
+                int b = 1;
+                int red = redova - 1;
+                int stupac = stupci - 1;
+                int a = 0;
 
-                while (counter <= redova * stupci)
+                while (b <= redova * stupci)
                 {
                    
-                    for (int i = col; i >= layer; i--)
+                    for (int i = stupac; i >= a; i--)
                     {
-                        matrica[row][i] = counter++;
+                        matrica[red][i] = b++;
                     }
 
                    
-                    for (int i = row - 1; i >= layer; i--)
+                    for (int i = red - 1; i >= a; i--)
                     {
-                        matrica[i][layer] = counter++;
+                        matrica[i][a] = b++;
                     }
 
                    
-                    for (int i = layer + 1; i <= col; i++)
+                    for (int i = a + 1; i <= stupac; i++)
                     {
-                        matrica[layer][i] = counter++;
+                        matrica[a][i] = b++;
                     }
 
                     
-                    for (int i = layer + 1; i < row; i++)
+                    for (int i = a + 1; i < red; i++)
                     {
-                        matrica[i][col] = counter++;
+                        matrica[i][stupac] = b++;
                     }
 
-                    layer++;
-                    row--;
-                    col--;
+                    a++;
+                    red--;
+                    stupac--;
                 }
 
                
