@@ -11,10 +11,10 @@ namespace UcenjeCS
     {
         public static void Izvedi()
         {
-            bool dev = false;
-            Console.Write("Unesi broj redova: ");
+            bool dev = true;
+            Console.WriteLine("Unesi broj redova: ");
             int red = dev ? 5 : int.Parse(Console.ReadLine());
-            Console.Write("Unesi broj stupaca: ");
+            Console.WriteLine("Unesi broj stupaca: ");
             int stupac = dev ? 5 : int.Parse(Console.ReadLine());
 
             int[,] matrica = new int[red, stupac];
