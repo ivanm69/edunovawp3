@@ -2,8 +2,14 @@
 using UcenjeCS;
 
 
+//new UcenjeCS.E15Polimorfizam.Program();
 
-LjubavniKalkulator.Izvedi();
+//new UcenjeCS.E14VjezbanjeRadasaObjektima.Program();
+
+//new UcenjeCS.E13Nasljedivanje.Program();
+
+
+//LjubavniKalkulator.Izvedi();
 
 //UcenjeCS.E12KlasaObjekt.Program.Izvedi();
 
@@ -31,7 +37,7 @@ LjubavniKalkulator.Izvedi();
 
 //E04UvjetnoGrananjeSwitch.Izvedi();
 
-//CiklicnaMatrica.Izvedi();
+CiklicnaMatrica.Izvedi();
 
 //Z03.Izvedi();
 //Z02.Izvedi();
