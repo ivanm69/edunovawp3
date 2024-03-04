@@ -11,64 +11,74 @@ namespace UcenjeCS
     {
         public static void Izvedi()
         {
-                bool dev = false;
+            bool dev = false;
             Console.Write("Unesi broj redova: ");
-            int redova = dev ? 5 : int.Parse(Console.ReadLine());
+            int red = dev ? 5 : int.Parse(Console.ReadLine());
             Console.Write("Unesi broj stupaca: ");
-            int stupci = dev ? 5 : int.Parse (Console.ReadLine());
+            int stupac = dev ? 5 : int.Parse(Console.ReadLine());
 
-                int[][] matrica = new int[redova][];
+            int[,] matrica = new int[red, stupac];
 
-                for (int i = 0; i < redova; i++)
+            int b = 1;
+            int maxB = red * stupac;
+
+            int redova = red - 1;
+            int stupci = stupac - 1;
+            int a = 0;
+            int c = 0;
+
+            while (b <= maxB)
+            {
+                for (int i = stupci; i >= c; i--)
                 {
-                    matrica[i] = new int[stupci];
+                    matrica[redova, i] = b++;
                 }
 
-                int b = 1;
-                int red = redova - 1;
-                int stupac = stupci - 1;
-                int a = 0;
+                if (b > maxB) { break; }
 
-                while (b <= redova * stupci)
+                redova--;
+
+
+                for (int i = redova; i >= a; i--)
                 {
-                   
-                    for (int i = stupac; i >= a; i--)
-                    {
-                        matrica[red][i] = b++;
-                    }
-
-                   
-                    for (int i = red - 1; i >= a; i--)
-                    {
-                        matrica[i][a] = b++;
-                    }
-
-                   
-                    for (int i = a + 1; i <= stupac; i++)
-                    {
-                        matrica[a][i] = b++;
-                    }
-
-                    
-                    for (int i = a + 1; i < red; i++)
-                    {
-                        matrica[i][stupac] = b++;
-                    }
-
-                    a++;
-                    red--;
-                    stupac--;
+                    matrica[i, c] = b++;
                 }
 
-               
-                for (int i = 0; i < redova; i++)
+                if (b > maxB) { break; }
+
+                c++;
+
+
+                for (int i = c; i <= stupci; i++)
                 {
-                    for (int j = 0; j < stupci; j++)
-                    {
-                        Console.Write(matrica[i][j] + "\t");
-                    }
-                    Console.WriteLine();
+                    matrica[a, i] = b++;
                 }
+
+                if (b > maxB) { break; }
+
+                a++;
+
+
+                for (int i = a; i <= redova; i++)
+                {
+                    matrica[i, stupci] = b++;
+                }
+                stupci--;
+            }
+
+            for (int i = 0; i < red; i++)
+            {
+                for (int j = 0; j < stupac; j++)
+                {
+                    Console.Write(matrica[i, j] + "\t");
+
+                }
+                Console.WriteLine();
+                Console.WriteLine(new string('*', stupac * 10));
+
+
+
             }
         }
     }
+}
