@@ -12,8 +12,18 @@ namespace UcenjeCS
         {
             Console.Write("Unesi svoje ime: ");
             string ime1 = Console.ReadLine().ToLower();
+            while (!IsValidInput(ime1))
+            {
+                Console.Write("Pogresan unos. Molim unesite Ime: ");
+                ime1 = Console.ReadLine().ToLower();
+            }
             Console.Write("Unesi ime svoje simpatije: ");
             string ime2 = Console.ReadLine().ToLower();
+            while (!IsValidInput(ime2))
+            {
+                Console.Write("Pogresan unos. Molim unesite Ime: ");
+                ime2 = Console.ReadLine().ToLower();
+            }
             string konacno = "";
 
             foreach (int i in Analiza(StvaranjeMatrice(ime1, ime2)))
@@ -22,6 +32,10 @@ namespace UcenjeCS
             }
 
             Console.WriteLine(ime1 + " i " + ime2 + " se vole " + konacno + "% !");
+        }
+        static bool IsValidInput(string input)
+        {
+            return !string.IsNullOrWhiteSpace(input) && !input.Any(char.IsDigit) && !input.Contains(" ");
         }
 
         static int[] StvaranjeMatrice(string ime1, string ime2)
